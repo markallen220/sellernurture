@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mark Allen Home Value Landing Pages</title>
+  <meta name="description" content="Two landing page concepts for Mark Allen's What's Your Home Worth campaign in Bakersfield, CA." />
+  <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&f[]=zodiak@400,500,700&display=swap" rel="stylesheet">
+  <style>
+    :root, [data-theme="light"] {
+      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+      --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem; --space-5: 1.25rem; --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem; --space-12: 3rem; --space-16: 4rem;
+      --color-bg: #f6f2ec;
+      --color-surface: #fbf8f3;
+      --color-surface-2: #f1ece5;
+      --color-surface-offset: #ebe4db;
+      --color-border: rgba(40,37,29,.12);
+      --color-text: #26221c;
+      --color-text-muted: #6f6a62;
+      --color-text-inverse: #f9f6f1;
+      --color-primary: #173f42;
+      --color-primary-hover: #0f2f31;
+      --color-accent: #8f7354;
+      --shadow-sm: 0 1px 2px rgba(38,34,28,.05), 0 8px 24px rgba(38,34,28,.06);
+      --shadow-lg: 0 16px 40px rgba(38,34,28,.10);
+      --radius-md: 0.75rem; --radius-lg: 1.25rem; --radius-xl: 1.75rem; --radius-full: 9999px;
+      --font-body: 'General Sans', Inter, sans-serif;
+      --font-display: 'Zodiak', Georgia, serif;
+      --content: 1180px;
+    }
+    [data-theme="dark"] {
+      --color-bg: #181614;
+      --color-surface: #211e1b;
+      --color-surface-2: #282420;
+      --color-surface-offset: #302a25;
+      --color-border: rgba(249,246,241,.12);
+      --color-text: #efe8de;
+      --color-text-muted: #b9afa1;
+      --color-text-inverse: #1b1714;
+      --color-primary: #d8c2a4;
+      --color-primary-hover: #e9d3b5;
+      --color-accent: #8fb1b2;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,.18), 0 8px 24px rgba(0,0,0,.24);
+      --shadow-lg: 0 16px 40px rgba(0,0,0,.32);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container { width: min(100% - 2rem, var(--content)); margin: 0 auto; }
+    .skip-link { position:absolute; left:-9999px; top:0; }
+    .skip-link:focus { left:1rem; top:1rem; background:var(--color-primary); color:var(--color-text-inverse); padding:.75rem 1rem; border-radius:var(--radius-md); z-index:999; }
+    .topbar {
+      position: sticky; top: 0; z-index: 20; backdrop-filter: blur(16px);
+      background: color-mix(in srgb, var(--color-bg) 84%, transparent);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .topbar-inner {
+      display:flex; align-items:center; justify-content:space-between; gap:var(--space-4);
+      padding: var(--space-4) 0;
+    }
+    .brand { display:flex; align-items:center; gap:.875rem; font-weight:700; letter-spacing:.02em; }
+    .brand svg { width: 34px; height: 34px; }
+    .top-actions { display:flex; align-items:center; gap:.75rem; flex-wrap:wrap; }
+    .toggle, .btn-secondary, .btn-primary, .tab {
+      min-height: 44px; border-radius: var(--radius-full); border: 1px solid var(--color-border);
+      display:inline-flex; align-items:center; justify-content:center; padding: .8rem 1.1rem; font-size: var(--text-sm); font-weight: 600;
+    }
+    .toggle { background: var(--color-surface); }
+    .btn-primary { background: var(--color-primary); color: var(--color-text-inverse); border-color: transparent; }
+    .btn-primary:hover { background: var(--color-primary-hover); }
+    .btn-secondary { background: transparent; }
+    .tabs { display:flex; gap:.75rem; flex-wrap:wrap; padding: var(--space-6) 0 var(--space-8); }
+    .tab.active { background: var(--color-primary); color: var(--color-text-inverse); border-color: transparent; }
+    .intro { padding: var(--space-8) 0 var(--space-4); }
+    .eyebrow { font-size: var(--text-xs); text-transform: uppercase; letter-spacing: .16em; color: var(--color-accent); font-weight: 700; }
+    .intro h1 { font-family: var(--font-display); font-size: var(--text-2xl); line-height: 1.02; margin-top: .65rem; max-width: 12ch; }
+    .intro p { margin-top: 1rem; color: var(--color-text-muted); max-width: 65ch; }
+    .page { display:none; padding-bottom: var(--space-16); }
+    .page.active { display:block; }
+    .hero {
+      display:grid; grid-template-columns: 1.05fr .95fr; gap: var(--space-8); align-items:stretch;
+      padding: var(--space-8) 0 var(--space-12);
+    }
+    .hero-copy { display:flex; flex-direction:column; justify-content:center; }
+    .hero-copy h2 { font-family: var(--font-display); font-size: clamp(2.5rem, 4vw, 4.75rem); line-height: .98; max-width: 10ch; }
+    .hero-copy p { margin-top: 1rem; color: var(--color-text-muted); max-width: 58ch; }
+    .proof {
+      display:flex; flex-wrap:wrap; gap:.75rem; margin-top: 1.5rem;
+    }
+    .proof span {
+      border:1px solid var(--color-border); background: var(--color-surface); padding:.65rem .85rem; border-radius: var(--radius-full); font-size: var(--text-xs); font-weight: 600;
+    }
+    .hero-visual {
+      position:relative; min-height: 620px; border-radius: var(--radius-xl); overflow:hidden; box-shadow: var(--shadow-lg);
+      background:
+        linear-gradient(145deg, rgba(16,28,30,.12), rgba(16,28,30,.02)),
+        radial-gradient(circle at top left, rgba(255,255,255,.65), transparent 35%),
+        url('https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1400&q=80') center/cover;
+    }
+    .hero-card {
+      position:absolute; right:1.25rem; bottom:1.25rem; width:min(100%, 390px);
+      background: color-mix(in srgb, var(--color-surface) 92%, white);
+      border:1px solid var(--color-border); border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); padding: var(--space-6);
+    }
+    .hero-card h3 { font-size: var(--text-lg); margin-bottom:.5rem; }
+    .hero-card p { color: var(--color-text-muted); font-size: var(--text-sm); margin-bottom: 1rem; }
+    .form-grid { display:grid; grid-template-columns:1fr 1fr; gap:.9rem; }
+    .field { display:flex; flex-direction:column; gap:.35rem; }
+    .field.full { grid-column:1 / -1; }
+    label { font-size: var(--text-xs); text-transform: uppercase; letter-spacing: .12em; color: var(--color-text-muted); font-weight: 700; }
+    input {
+      min-height: 52px; width:100%; border-radius: .95rem; border:1px solid var(--color-border); background: var(--color-bg); padding: 0 1rem;
+    }
+    input:focus { outline: 2px solid color-mix(in srgb, var(--color-primary) 50%, white); outline-offset: 2px; }
+    .micro { font-size: var(--text-xs); color: var(--color-text-muted); margin-top:.85rem; }
+    .section { padding: var(--space-12) 0; }
+    .section.alt { background: var(--color-surface); border-block:1px solid var(--color-border); }
+    .grid-2 { display:grid; grid-template-columns: .9fr 1.1fr; gap: var(--space-8); align-items:center; }
+    .portrait-card, .quote-card, .metric-card, .feature-card {
+      background: var(--color-surface); border:1px solid var(--color-border); border-radius: var(--radius-xl); box-shadow: var(--shadow-sm);
+    }
+    .portrait-card { overflow:hidden; }
+    .portrait-art {
+      aspect-ratio: 4 / 5;
+      background:
+        radial-gradient(circle at 30% 18%, rgba(255,255,255,.45), transparent 22%),
+        linear-gradient(165deg, #c6b49f 0%, #8d7a68 46%, #54453a 100%);
+      position:relative;
+    }
+    .portrait-art::before {
+      content:''; position:absolute; inset:18% 28% 10% 28%; border-radius: 999px 999px 220px 220px / 999px 999px 170px 170px;
+      background: linear-gradient(180deg, #f0d6bd 0%, #d8b292 100%);
+      box-shadow: 0 -120px 0 -50px #44342a;
+    }
+    .portrait-art::after {
+      content:''; position:absolute; inset:auto 19% 0 19%; height:34%; border-radius: 32px 32px 0 0;
+      background: linear-gradient(180deg, #3d4648 0%, #202729 100%);
+    }
+    .copy h3, .stack h3, .cta-panel h3 { font-family: var(--font-display); font-size: var(--text-xl); margin-bottom: .85rem; }
+    .copy p, .stack p { color: var(--color-text-muted); }
+    .split-cards { display:grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); margin-top: var(--space-6); }
+    .feature-card { padding: var(--space-6); }
+    .feature-card strong { display:block; margin-bottom: .5rem; font-size: var(--text-lg); }
+    .quotes { display:grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-5); margin-top: var(--space-6); }
+    .quote-card { padding: var(--space-6); }
+    .quote-card p { font-size: var(--text-base); }
+    .quote-card footer { margin-top: 1rem; font-size: var(--text-sm); color: var(--color-text-muted); font-weight: 600; }
+    .objection-layout { display:grid; grid-template-columns: 1fr .9fr; gap: var(--space-8); align-items:start; }
+    .steps { display:grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); margin-top: var(--space-6); }
+    .step { padding: var(--space-6); background: var(--color-surface); border:1px solid var(--color-border); border-radius: var(--radius-xl); }
+    .step small { display:block; color: var(--color-accent); text-transform: uppercase; letter-spacing:.15em; font-weight:700; margin-bottom: .8rem; }
+    .cta-panel {
+      padding: clamp(2rem, 4vw, 4rem); background: linear-gradient(180deg, var(--color-surface) 0%, var(--color-surface-2) 100%);
+      border:1px solid var(--color-border); border-radius: calc(var(--radius-xl) + .25rem); box-shadow: var(--shadow-lg);
+    }
+    .cta-row { margin-top: 1.25rem; display:flex; flex-wrap:wrap; gap:.9rem; }
+    .footer { padding: var(--space-8) 0 var(--space-12); color: var(--color-text-muted); font-size: var(--text-sm); }
+    .footer-line { display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap; padding-top: 1.5rem; border-top:1px solid var(--color-border); }
+    @media (max-width: 960px) {
+      .hero, .grid-2, .objection-layout, .quotes, .split-cards, .steps { grid-template-columns: 1fr; }
+      .hero-visual { min-height: 500px; }
+      .hero-card { position: static; width: 100%; margin: 1rem; }
+      .form-grid { grid-template-columns: 1fr; }
+      .intro h1, .hero-copy h2 { max-width: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand" aria-label="Mark Allen brand mark">
+        <svg viewBox="0 0 48 48" fill="none" role="img" aria-label="Mark Allen logo">
+          <rect x="4" y="7" width="40" height="34" rx="12" stroke="currentColor" stroke-width="2.4"></rect>
+          <path d="M12 31L20 18L24 24L28 18L36 31" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        <div>
+          <div>Mark Allen</div>
+          <div style="font-size:var(--text-xs); color:var(--color-text-muted); font-weight:600;">Home Value Landing Concepts</div>
+        </div>
+      </div>
+      <div class="top-actions">
+        <button class="toggle" data-theme-toggle aria-label="Switch theme">Theme</button>
+        <a class="btn-secondary" href="#v1">Version 1</a>
+        <a class="btn-secondary" href="#v2">Version 2</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="container intro">
+      <div class="eyebrow">Seller lead generation</div>
+      <h1>Two live-ready “What’s Your Home Worth?” landing page versions.</h1>
+      <p>Both concepts are built as static HTML so you can push them to GitHub and deploy them on GitHub Pages, Netlify, or Vercel. Version 1 is the warmer conversion-safe option for broad Bakersfield sellers, and Version 2 is the darker authority version for a more premium positioning.</p>
+      <div class="tabs" role="tablist" aria-label="Landing page versions">
+        <button class="tab active" data-target="v1" role="tab" aria-selected="true">Version 1 — Warm Modern</button>
+        <button class="tab" data-target="v2" role="tab" aria-selected="false">Version 2 — Dark Authority</button>
+      </div>
+    </section>
+
+    <section id="v1" class="page active">
+      <div class="container hero">
+        <div class="hero-copy">
+          <div class="eyebrow">Version 1</div>
+          <h2>See what your Bakersfield home could sell for.</h2>
+          <p>Get a local home value based on recent sales, current buyer demand, and the condition of your home — not just an automated estimate. This version is designed to feel warm, credible, and easy to act on.</p>
+          <div class="proof">
+            <span>12+ Years</span>
+            <span>370+ Homes Sold</span>
+            <span>$166M+ Career Sales</span>
+            <span>CA DRE #01933129</span>
+          </div>
+          <div class="cta-row">
+            <a class="btn-primary" href="#v1-form">Get My Home Value</a>
+            <a class="btn-secondary" href="https://calendly.com/realtormarkallen" target="_blank" rel="noopener noreferrer">Book a 15-Minute Pricing Call</a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div id="v1-form" class="hero-card">
+            <h3>Get Your Home Value</h3>
+            <p>No pressure. Just a clear value range and real local insight from Mark Allen.</p>
+            <form>
+              <div class="form-grid">
+                <div class="field full">
+                  <label for="address1">Property Address</label>
+                  <input id="address1" type="text" placeholder="1234 Example St, Bakersfield, CA" />
+                </div>
+                <div class="field">
+                  <label for="name1">Full Name</label>
+                  <input id="name1" type="text" placeholder="Your name" />
+                </div>
+                <div class="field">
+                  <label for="phone1">Phone</label>
+                  <input id="phone1" type="tel" placeholder="(661) 555-0123" />
+                </div>
+                <div class="field full">
+                  <label for="email1">Email</label>
+                  <input id="email1" type="email" placeholder="you@example.com" />
+                </div>
+                <div class="field full">
+                  <button class="btn-primary" style="width:100%;" type="submit">Get My Home Value</button>
+                </div>
+              </div>
+              <div class="micro">Best back-end path: route form submissions into Follow Up Boss first, then redirect high-intent leads to Calendly.</div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <section class="section alt">
+        <div class="container grid-2">
+          <article class="portrait-card">
+            <div class="portrait-art" aria-label="Portrait placeholder representing Mark Allen"></div>
+          </article>
+          <div class="copy">
+            <div class="eyebrow">Trust block</div>
+            <h3>Local pricing guidance from a straight shooter.</h3>
+            <p>Mark Allen is a Bakersfield REALTOR® with 12+ years of experience, 370+ homes sold, and $166M+ in career sales. This section is where your real portrait should sit next to the short bio so the page feels personal, local, and credible.</p>
+            <p style="margin-top:1rem;">BrokerX should stay secondary here and in the footer, while the page remains clearly centered on the Mark Allen personal brand.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="eyebrow">Why it works</div>
+          <div class="stack">
+            <h3>More useful than a generic online estimate.</h3>
+            <p>Most seller pages make the mistake of feeling generic. This one leads with a cleaner promise, then explains why a real local review of condition, upgrades, and street-by-street buyer demand matters more than a one-size-fits-all number.</p>
+          </div>
+          <div class="split-cards">
+            <article class="feature-card"><strong>Realistic value range</strong><p>Recent Bakersfield sales, not just broad algorithm output.</p></article>
+            <article class="feature-card"><strong>Pricing insight</strong><p>What may be helping or hurting price before you ever hit the market.</p></article>
+            <article class="feature-card"><strong>Clear next step</strong><p>Value request first, pricing appointment second for higher-intent leads.</p></article>
+          </div>
+          <div class="quotes">
+            <blockquote class="quote-card">
+              <p>“Mark gave us a real number, not a sales pitch — he walked us through the exact comps he used and why. We listed the following week and were in escrow in nine days, over asking.”</p>
+              <footer>Jenna R. • Seven Oaks</footer>
+            </blockquote>
+            <blockquote class="quote-card">
+              <p>“Zillow said one thing, but the number felt off. Mark came out, looked at the upgrades we'd done, and priced it for what it really was.”</p>
+              <footer>Carla T. • Haggin Oaks</footer>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      <section class="section alt">
+        <div class="container objection-layout">
+          <div class="stack">
+            <div class="eyebrow">Objection handling</div>
+            <h3>Thinking about selling on your own?</h3>
+            <p>A lot of homeowners start there. This section is meant to slow the prospect down and reframe the decision around net proceeds, pricing strategy, and what actually sells, not just what gets listed.</p>
+          </div>
+          <blockquote class="quote-card">
+            <p>“I was set on selling it myself to save the commission. Mark didn’t argue — he just showed me what was actually selling on my street and what I’d likely leave on the table.”</p>
+            <footer>Dave M. • Rosedale</footer>
+          </blockquote>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="eyebrow">Process</div>
+          <h3 style="font-family:var(--font-display); font-size:var(--text-xl);">What happens next.</h3>
+          <div class="steps">
+            <article class="step"><small>01</small><p>Submit the property address and contact details.</p></article>
+            <article class="step"><small>02</small><p>Mark reviews recent sales, market activity, and property factors.</p></article>
+            <article class="step"><small>03</small><p>You get a value range and the option to book a pricing call.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container cta-panel">
+          <div class="eyebrow">Final CTA</div>
+          <h3>Get clarity before you decide what to do next.</h3>
+          <p>This section should be the final conversion push: same core offer, same primary CTA, and a simple secondary path for the homeowner who already wants to talk now.</p>
+          <div class="cta-row">
+            <a class="btn-primary" href="#v1-form">Get My Home Value</a>
+            <a class="btn-secondary" href="https://calendly.com/realtormarkallen" target="_blank" rel="noopener noreferrer">Book Pricing Call</a>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section id="v2" class="page">
+      <div class="container hero">
+        <div class="hero-copy">
+          <div class="eyebrow">Version 2</div>
+          <h2>Start with a number you can trust.</h2>
+          <p>This darker version leans more premium and more design-forward. It still keeps the same core conversion flow, but the tone is tighter, more assertive, and slightly more upscale.</p>
+          <div class="proof">
+            <span>Mark Allen</span>
+            <span>370+ Homes Sold</span>
+            <span>$166M+ Sales</span>
+            <span>BrokerX</span>
+          </div>
+          <div class="cta-row">
+            <a class="btn-primary" href="#v2-form">Request My Home Value</a>
+            <a class="btn-secondary" href="https://calendly.com/realtormarkallen" target="_blank" rel="noopener noreferrer">Pricing Call</a>
+          </div>
+        </div>
+        <div class="hero-visual" style="background:linear-gradient(180deg, rgba(0,0,0,.20), rgba(0,0,0,.48)), url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1400&q=80') center/cover;">
+          <div id="v2-form" class="hero-card" style="background: color-mix(in srgb, var(--color-surface) 86%, black);">
+            <h3>Request Your Home Value</h3>
+            <p>Straight answers. No pressure. No generic pricing.</p>
+            <form>
+              <div class="form-grid">
+                <div class="field full"><label for="address2">Property Address</label><input id="address2" type="text" placeholder="Property address" /></div>
+                <div class="field"><label for="name2">Full Name</label><input id="name2" type="text" placeholder="Your name" /></div>
+                <div class="field"><label for="phone2">Phone</label><input id="phone2" type="tel" placeholder="Phone" /></div>
+                <div class="field full"><label for="email2">Email</label><input id="email2" type="email" placeholder="Email" /></div>
+                <div class="field full"><button class="btn-primary" style="width:100%;" type="submit">Request My Home Value</button></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <section class="section alt">
+        <div class="container grid-2">
+          <div class="copy">
+            <div class="eyebrow">Positioning</div>
+            <h3>Pricing is where most sellers lose money.</h3>
+            <p>Too high and you chase the market. Too low and you leave money on the table. This version puts that message earlier and more directly, which makes it a better fit for higher-end or more design-conscious homeowners.</p>
+          </div>
+          <blockquote class="quote-card">
+            <p>“We were moving out of state and dreading the whole process. Mark handled everything and kept us updated the entire way. Sold quickly and closed without a single surprise.”</p>
+            <footer>Robert & Lisa P. • Bakersfield</footer>
+          </blockquote>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="split-cards">
+            <article class="feature-card"><strong>Real comps</strong><p>Not just algorithm output.</p></article>
+            <article class="feature-card"><strong>Local judgment</strong><p>Condition, buyer demand, and neighborhood context.</p></article>
+            <article class="feature-card"><strong>Next-step strategy</strong><p>Value range first, pricing consult next.</p></article>
+          </div>
+          <div class="quotes">
+            <blockquote class="quote-card">
+              <p>“Zillow said one thing, but the number felt off. Mark priced it for what it really was.”</p>
+              <footer>Carla T. • Haggin Oaks</footer>
+            </blockquote>
+            <blockquote class="quote-card">
+              <p>“He netted me more than my FSBO price even after his fee.”</p>
+              <footer>Dave M. • Rosedale</footer>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container cta-panel">
+          <div class="eyebrow">Use case</div>
+          <h3>Best if you want a more premium first impression.</h3>
+          <p>Build this version if you want the page to feel more upscale, more architectural, and slightly more assertive in tone. It is still conversion-driven, but narrower in audience than Version 1.</p>
+          <div class="cta-row">
+            <a class="btn-primary" href="#v2-form">See This Version Live</a>
+            <a class="btn-secondary" href="#v1">Compare to Version 1</a>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <footer class="container footer">
+      <div class="footer-line">
+        <div>Mark Allen • Bakersfield REALTOR® • CA DRE #01933129</div>
+        <div>BrokerX appears as secondary compliance branding in production.</div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    (function () {
+      const root = document.documentElement;
+      const toggle = document.querySelector('[data-theme-toggle]');
+      let theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      root.setAttribute('data-theme', theme);
+      const setToggle = () => { toggle.textContent = theme === 'dark' ? 'Light Mode' : 'Dark Mode'; };
+      setToggle();
+      toggle.addEventListener('click', () => {
+        theme = theme === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', theme);
+        setToggle();
+      });
+      const tabs = document.querySelectorAll('.tab');
+      const pages = document.querySelectorAll('.page');
+      function showPage(id) {
+        pages.forEach(page => page.classList.toggle('active', page.id === id));
+        tabs.forEach(tab => {
+          const active = tab.dataset.target === id;
+          tab.classList.toggle('active', active);
+          tab.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+        history.replaceState(null, '', '#' + id);
+      }
+      tabs.forEach(tab => tab.addEventListener('click', () => showPage(tab.dataset.target)));
+      const hash = location.hash.replace('#', '');
+      if (hash === 'v2') showPage('v2'); else showPage('v1');
+    })();
+  </script>
+</body>
+</html>
