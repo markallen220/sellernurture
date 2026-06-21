@@ -138,6 +138,15 @@
       background: rgba(255,255,255,0.02);
       font-size: var(--text-sm);
     }
+    .nav-links a.nav-phone {
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--color-primary);
+      font-weight: 700;
+    }
+    .nav-links a.nav-phone:hover {
+      border-color: var(--color-primary);
+    }
     .nav-links a.sticky-cta {
       background: var(--color-primary);
       color: #181512;
@@ -433,6 +442,7 @@
       <nav class="nav-links" aria-label="Primary navigation">
         <a href="#pricing">Why this matters</a>
         <a href="#process">How it works</a>
+        <a class="nav-phone" href="tel:+16615997314" aria-label="Call Mark Allen">(661) 599-7314</a>
         <a class="sticky-cta" href="#contact">Get My Home Value</a>
       </nav>
     </div>
@@ -447,7 +457,6 @@
           <p class="lede">Get a real value range based on local comps, current buyer demand, and the condition of your home — not just a generic online estimate.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#contact">Get My Home Value</a>
-            <a class="btn btn-secondary" href="#contact">Book a 15-Minute Pricing Call</a>
           </div>
         </div>
 
@@ -626,7 +635,6 @@
         </div>
         <div class="cta-actions">
           <a class="btn btn-primary" href="#contact">Get My Home Value</a>
-          <a class="btn btn-secondary" href="#contact">Book a 15-Minute Pricing Call</a>
         </div>
       </div>
     </section>
@@ -636,11 +644,15 @@
     <div class="container footer-inner">
       <div>
         <strong style="color: var(--color-text);">Mark Allen</strong><br>
-        Bakersfield REALTOR® · DRE #01933129
+        Bakersfield REALTOR® · DRE #01933129<br>
+        BrokerX · 3512 Coffee Rd, Bakersfield, CA 93308
       </div>
       <div>
-        BrokerX · 3512 Coffee Rd Bakersfield, CA 93308 · Bakersfield, CA<br>
-        Confirm brokerage disclosure and license requirements before publishing.
+        <a href="tel:+16615997314" style="color: var(--color-text); font-weight: 700;">(661) 599-7314</a><br>
+        <a href="mailto:markallensells@gmail.com" style="color: var(--color-text-muted);">markallensells@gmail.com</a>
+      </div>
+      <div style="display: flex; align-items: center;">
+        <img src="./assets/fair-housing-realtor.png" alt="Equal Housing Opportunity and REALTOR logos" style="height: 56px; width: auto; opacity: 0.85;">
       </div>
     </div>
   </footer>
