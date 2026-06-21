@@ -140,8 +140,13 @@
     }
     .sticky-cta {
       background: var(--color-primary);
-      color: #181512;
+      color: #181512 !important;
       font-weight: 800;
+      border: 1px solid var(--color-primary);
+    }
+    .sticky-cta:hover {
+      background: var(--color-primary-hover);
+      border-color: var(--color-primary-hover);
     }
     .btn {
       display: inline-flex;
@@ -237,6 +242,26 @@
       font-weight: 700;
     }
     .trust-bar-inner span { white-space: nowrap; }
+    .market-bar-inner {
+      display: flex;
+      gap: var(--space-4);
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 1rem 0;
+      color: var(--color-text-muted);
+      font-size: var(--text-sm);
+      font-weight: 500;
+    }
+    .market-bar-inner span { white-space: nowrap; }
+    .market-bar-inner strong { color: var(--color-text); font-weight: 700; }
+    .market-bar-label {
+      color: var(--color-accent);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.7rem;
+    }
     .panel,
     .card,
     .quote,
@@ -385,6 +410,8 @@
       .hero-copy h1 { max-width: 11ch; }
       .sticky-cta { text-align: center; }
       .trust-bar-inner span { white-space: normal; }
+      .market-bar-inner { gap: 0.75rem 1.25rem; justify-content: flex-start; }
+      .market-bar-inner span { white-space: normal; }
     }
   </style>
 </head>
@@ -423,19 +450,19 @@
           </div>
         </div>
 
-        <div class="hero-visual" role="img" aria-label="Luxury Bakersfield home exterior">
-          <div class="hero-visual-note">Replace <strong>assets/hero-home.jpg</strong> with the property photo you want featured at the top of the page.</div>
+        <div class="hero-visual" role="img" aria-label="Modern luxury home interior">
+          <img src="./assets/hero-home.jpg" alt="Modern luxury home interior" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit; display: block;">
         </div>
       </div>
     </section>
 
     <section class="trust-bar">
-      <div class="container trust-bar-inner">
-        <span>12+ years</span>
-        <span>370+ homes sold</span>
-        <span>$166M+ career volume</span>
-        <span>DRE #01933129</span>
-        <span>BrokerX</span>
+      <div class="container market-bar-inner">
+        <span class="market-bar-label">Bakersfield market &middot; May 2026</span>
+        <span><strong>$450K</strong> avg sold price</span>
+        <span><strong>37 days</strong> on market</span>
+        <span><strong>98%</strong> of list price</span>
+        <span><strong>2.4 mo.</strong> of inventory</span>
       </div>
     </section>
 
@@ -496,7 +523,7 @@
         <div class="panel">
           <span class="eyebrow">Local pricing guidance</span>
           <h2>Local pricing guidance from an agent who knows Bakersfield.</h2>
-          <p style="margin-top: 1rem;">Mark Allen is a Bakersfield REALTOR® with 12+ years of experience, 370+ homes sold, and $166M+ in career sales. He helps homeowners price correctly, avoid costly mistakes, and make smarter selling decisions with direct advice backed by local market data. CA DRE #01933129.</p>
+          <p style="margin-top: 1rem;">Mark Allen is a Bakersfield REALTOR® with 12+ years of experience, 370+ homes sold, and $166M+ in career sales. He works the same neighborhoods you live in, so the comps he gives you come from your streets — not a statewide algorithm. He helps homeowners price correctly, avoid costly mistakes, and make smarter selling decisions with direct advice backed by local market data. CA DRE #01933129.</p>
           <div class="metrics">
             <div class="metric"><strong>12+</strong><span>Years experience</span></div>
             <div class="metric"><strong>370+</strong><span>Homes sold</span></div>
@@ -524,7 +551,7 @@
           </article>
           <article class="card">
             <h3>Clear next step</h3>
-            <p style="margin-top: 0.75rem;">Start with a value range, then decide whether a pricing call makes sense.</p>
+            <p style="margin-top: 0.75rem;">Get your value range, then a straight answer: list now, wait, or sell it yourself.</p>
           </article>
         </div>
       </div>
@@ -536,19 +563,16 @@
         <h2>What sellers want is clarity.</h2>
         <div class="quotes">
           <article class="quote">
-            <h3>Jenna R., Seven Oaks</h3>
-            <p style="margin-top: 0.75rem;">“Mark gave us a real number, not a sales pitch — he walked us through the exact comps he used and why. We listed the following week and were in escrow in nine days, over asking. No games, no pressure.”</p>
-            <p>Confirm real client approval before publishing.</p>
-          </article>
-          <article class="quote">
             <h3>Dave M., Rosedale</h3>
-            <p style="margin-top: 0.75rem;">“I was set on selling it myself to save the commission. Mark didn't argue — he just showed me what was actually selling on my street and what I'd likely leave on the table. He netted me more than my FSBO price even after his fee.”</p>
-            <p>Confirm real client approval before publishing.</p>
+            <p style="margin-top: 0.75rem;">“I was set on selling it myself to save the commission. Mark didn't argue — he showed me what was actually selling on my street and what I'd likely leave on the table. Netted me more than my FSBO price even after his fee.”</p>
           </article>
           <article class="quote">
             <h3>Carla T., Haggin Oaks</h3>
-            <p style="margin-top: 0.75rem;">“Zillow said one thing, but the number felt off. Mark came out, looked at the upgrades we'd done, and priced it for what it really was. He was within a few thousand of our final sale price. The man knows this market.”</p>
-            <p>Confirm real client approval before publishing.</p>
+            <p style="margin-top: 0.75rem;">“Zillow said one thing, but the number felt off. Mark came out, looked at the upgrades we'd done, and priced it for what it really was — within a few thousand of our final sale price. The man knows this market.”</p>
+          </article>
+          <article class="quote">
+            <h3>Jenna R., Seven Oaks</h3>
+            <p style="margin-top: 0.75rem;">“A real number, not a sales pitch. He walked us through the exact comps and why. Escrow in nine days, over asking.”</p>
           </article>
         </div>
       </div>
