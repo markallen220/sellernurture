@@ -437,55 +437,56 @@
       </div>
     </section>
 
-    <section class="section" id="contact">
-      <div class="container">
-        <div class="panel">
-          <span class="eyebrow">Get My Bakersfield Home Value</span>
-          <h2>Straight answers, real comps, and a clearer picture of what your home could sell for in today’s market.</h2>
-          <p style="max-width: 62ch; margin-top: 1rem;">I’ll review the property, compare it to recent sales, and send you a realistic value range with the option to talk through pricing if you want to go deeper.</p>
+   <section class="section" id="contact">
+  <div class="container">
+    <div class="panel">
+      <span class="eyebrow">Get My Bakersfield Home Value</span>
+      <h2>Straight answers, real comps, and a clearer picture of what your home could sell for in today’s market.</h2>
+      <p style="max-width: 62ch; margin-top: 1rem;">
+        I’ll review the property, compare it to recent sales, and send you a realistic value range based on what similar homes are actually selling for in Bakersfield right now.
+      </p>
 
-          <form class="form-grid" id="leadForm" data-stage="Seller Nurture">
-            <div id="formStep1">
-              <div class="field">
-                <label for="address">Property Address</label>
-                <input id="address" name="property_address" type="text" placeholder="123 Main St, Bakersfield, CA" required />
-              </div>
-              <button class="btn btn-primary" type="button" id="stepOneButton" style="margin-top: 1rem;">See My Home's Value</button>
-            </div>
-
-            <div id="formStep2" class="hidden" style="display: grid; gap: 1rem;">
-              <div class="field">
-                <label for="name">Full Name</label>
-                <input id="name" name="full_name" type="text" placeholder="Your name" required />
-              </div>
-              <div class="field">
-                <label for="email">Email</label>
-                <input id="email" name="email" type="email" placeholder="you@example.com" required />
-              </div>
-              <div class="field">
-                <label for="phone">Phone</label>
-                <input id="phone" name="phone" type="tel" placeholder="(661) 555-1234" required />
-              </div>
-              <div class="field">
-                <label for="timing">When are you thinking about selling?</label>
-                <select id="timing" name="selling_timing" required>
-                  <option value="" selected disabled>Select one</option>
-                  <option value="ASAP / I'm ready" data-stage="Hot">ASAP / I'm ready</option>
-                  <option value="In the next 0–3 months" data-stage="Hot">In the next 0–3 months</option>
-                  <option value="3–6 months" data-stage="Warm">3–6 months</option>
-                  <option value="6–12 months" data-stage="Warm">6–12 months</option>
-                  <option value="Just curious for now" data-stage="Seller Nurture">Just curious for now</option>
-                </select>
-              </div>
-              <input type="hidden" id="fubStage" name="fub_stage" value="Seller Nurture" />
-              <button class="btn btn-primary" type="submit">Get My Home Value</button>
-              <p class="micro-note">100% free. No obligation. I'll never share your information.</p>
-            </div>
-          </form>
+      <form class="form-grid" id="leadForm" data-stage="Seller Nurture">
+        <div class="field">
+          <label for="address">Property Address</label>
+          <input id="address" name="property_address" type="text" placeholder="123 Main St, Bakersfield, CA" required />
         </div>
-      </div>
-    </section>
+        <div class="field">
+          <label for="name">Full Name</label>
+          <input id="name" name="full_name" type="text" placeholder="Your name" required />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" required />
+        </div>
+        <div class="field">
+          <label for="phone">Phone</label>
+          <input id="phone" name="phone" type="tel" placeholder="661-599-7314" required />
+        </div>
+        <div class="field">
+          <label for="timing">When are you thinking about selling?</label>
+          <select id="timing" name="selling_timing" required>
+            <option value="" disabled selected>Select one</option>
+            <option value="0-3 months">0-3 months</option>
+            <option value="3-6 months">3-6 months</option>
+            <option value="6-12 months">6-12 months</option>
+            <option value="Just curious">Just curious</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="notes">Anything specific you want me to know?</label>
+          <textarea id="notes" name="notes" rows="3" placeholder="Optional, but helpful."></textarea>
+        </div>
+        <input id="fubStage" type="hidden" name="fub_stage" value="Seller Nurture" />
+        <button class="btn btn-primary" type="submit">Get My Free Pricing Analysis</button>
+      </form>
 
+      <p class="micro-note" style="margin-top: 1rem;">
+        100% free. No obligation. I'll never share your information.
+      </p>
+    </div>
+  </div>
+</section>
     <section class="section">
       <div class="container two-col">
         <div class="portrait-frame">
